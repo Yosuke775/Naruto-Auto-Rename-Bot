@@ -107,12 +107,12 @@ async def add_metadata(input_path, output_path, user_id):
         raise RuntimeError("FFmpeg not found in PATH")
     
     metadata = {
-        'title': await codeflixbots.get_title(user_id),
-        'artist': await codeflixbots.get_artist(user_id),
-        'author': await codeflixbots.get_author(user_id),
-        'video_title': await codeflixbots.get_video(user_id),
-        'audio_title': await codeflixbots.get_audio(user_id),
-        'subtitle': await codeflixbots.get_subtitle(user_id)
+        'title': await Otaku_Hindi_Hub.get_title(user_id),
+        'artist': await Otaku_Hindi_Hub.get_artist(user_id),
+        'author': await Otaku_Hindi_Hub.get_author(user_id),
+        'video_title': await Otaku_Hindi_Hub.get_video(user_id),
+        'audio_title': await Otaku_Hindi_Hub.get_audio(user_id),
+        'subtitle': await Otaku_Hindi_Hub.get_subtitle(user_id)
     }
     
     cmd = [
