@@ -183,4 +183,4 @@ class Database:
         await self.col.update_one({'_id': int(user_id)}, {'$set': {'video': video}})
 
 
-codeflixbots = Database(Config.DB_URL, Config.DB_NAME)
+Otaku_Hindi_Hub = Database(Config.DB_URL, Config.DB_NAME)
