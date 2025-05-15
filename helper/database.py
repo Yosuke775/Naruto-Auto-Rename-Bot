@@ -13,7 +13,7 @@ class Database:
         except Exception as e:
             logging.error(f"Failed to connect to MongoDB: {e}")
             raise e  # Re-raise the exception after logging it
-        self.codeflixbots = self._client[database_name]
+        self.Otaku_Hindi_Hub = self._client[database_name]
         self.col = self.Otaku_Hindi_Hub.user
 
     def new_user(self, id):
