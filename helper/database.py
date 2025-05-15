@@ -13,8 +13,8 @@ class Database:
         except Exception as e:
             logging.error(f"Failed to connect to MongoDB: {e}")
             raise e  # Re-raise the exception after logging it
-        self.Otaku_Hindi_Hub = self._client[database_name]
-        self.col = self.Otaku_Hindi_Hub.user
+        self.codeflixbots = self._client[database_name]
+        self.col = self.codeflixbots.user
 
     def new_user(self, id):
         return dict(
@@ -177,10 +177,10 @@ class Database:
 
     async def get_video(self, user_id):
         user = await self.col.find_one({'_id': int(user_id)})
-        return user.get('video', 'Encoded By @Animes_Cruise')
+        return user.get('video', 'Encoded By @Otaku_Hindi_Hub')
 
     async def set_video(self, user_id, video):
         await self.col.update_one({'_id': int(user_id)}, {'$set': {'video': video}})
 
 
-Otaku_Hindi_Hub = Database(Config.DB_URL, Config.DB_NAME)
+codeflixbots = Database(Config.DB_URL, Config.DB_NAME)
