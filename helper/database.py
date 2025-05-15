@@ -23,7 +23,7 @@ class Database:
             file_id=None,
             caption=None,
             metadata=True,
-            metadata_code="Telegram : @Otaku_Hindi_Hub",
+            metadata_code="Telegram : @codeflixbots",
             format_template=None,
             ban_status=dict(
                 is_banned=False,
