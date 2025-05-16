@@ -18,7 +18,7 @@ class Config(object):
     BOT_UPTIME  = time.time()
     START_PIC   = os.environ.get("START_PIC", "https://images.app.goo.gl/CZoLdnemZXJZeVSA6")
     ADMIN       = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '6497757690').split()]
-    FORCE_SUB_CHANNELS = os.environ.get('FORCE_SUB_CHANNELS', '-1002368259485,-1002607329644').split(',')
+    FORCE_SUB_CHANNELS = os.environ.get('FORCE_SUB_CHANNELS', 'Mythic_Bots,MythicBot_Support').split(',')
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002686116676"))
     DUMP_CHANNEL = int(os.environ.get("DUMP_CHANNEL", "-1002629771463"))
     
