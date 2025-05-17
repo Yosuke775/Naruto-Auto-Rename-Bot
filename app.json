@@ -42,7 +42,7 @@
             "value": "",
             "required": false
         },
-        "START_PIC": {
+        "START_VID": {
             "description": "Your Bot start cmd Pic from @MT_TelegraPH_Bot",
             "value": "",
             "required": false
