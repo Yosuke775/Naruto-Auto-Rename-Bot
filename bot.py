@@ -57,9 +57,9 @@ class Bot(Client):
                 time_str = curr.strftime('%I:%M:%S %p')
                 
                 # Send the message with the photo
-                await self.send_video(
+                await self.send_photo(
                     chat_id=chat_id,
-                    video=Config.START_VID,
+                    photo=Config.START_pic,
                     caption=(
                         "**ɴᴀʀᴜᴛᴏ ɪs ʀᴇsᴛᴀʀᴛᴇᴅ ᴀɢᴀɪɴ  !**\n\n"
                         f"ɪ ᴅɪᴅɴ'ᴛ sʟᴇᴘᴛ sɪɴᴄᴇ​: `{uptime_string}`"
