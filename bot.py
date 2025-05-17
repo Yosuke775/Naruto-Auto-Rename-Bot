@@ -59,7 +59,7 @@ class Bot(Client):
                 # Send the message with the photo
                 await self.send_photo(
                     chat_id=chat_id,
-                    photo=Config.START_Vid,
+                    photo=Config.START_VID,
                     caption=(
                         "**ɴᴀʀᴜᴛᴏ ɪs ʀᴇsᴛᴀʀᴛᴇᴅ ᴀɢᴀɪɴ  !**\n\n"
                         f"ɪ ᴅɪᴅɴ'ᴛ sʟᴇᴘᴛ sɪɴᴄᴇ​: `{uptime_string}`"
