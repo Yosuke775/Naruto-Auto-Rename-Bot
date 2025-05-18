@@ -58,7 +58,7 @@ async def start(client, message: Message):
     #else:
         #await message.reply_text(
                            await message.reply_video(,
-                    #video=Config.START_VID,
+                    video=Config.START_VID,
                     caption=(
  text=Txt.START_TXT.format(user.mention),
             reply_markup=buttons,
