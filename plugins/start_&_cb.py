@@ -48,7 +48,9 @@ async def start(client, message: Message):
             Config.START_VID,)
 @Client.on_message(filters.command("start") & filters.private)
 async def start_command(client, message):
-    await message.reply_video(
+    user = message.from_user
+ if Config.START_VID:
+await message.reply_video(
         video=Config.START_VID,
             caption=Txt.START_TXT.format(user.mention),
             reply_markup=buttons
