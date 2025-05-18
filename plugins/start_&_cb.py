@@ -43,7 +43,7 @@ async def start(client, message: Message):
     ])
 
     # Send start message with or without picture
-    if Config.START_VID:
+   #if Config.START_VID:
         await message.reply_video(
             Config.START_VID,)
 @Client.on_message(filters.command("start") & filters.private)
