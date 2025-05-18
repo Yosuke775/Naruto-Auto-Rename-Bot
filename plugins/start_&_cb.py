@@ -14,7 +14,7 @@ async def start(client, message: Message):
     await codeflixbots.add_user(client, message)
 
     # Initial interactive text and sticker sequence
-    m = await message.reply_text("ʜᴇʜᴇ..ɪ'ᴍ ɴᴀʀᴜᴛᴏ!\nᴡᴀɪᴛ ᴀ ᴍᴏᴍᴇɴᴛ. . .")
+     m = await message.reply_text("ʜᴇʜᴇ..ɪ'ᴍ ɴᴀʀᴜᴛᴏ!\nᴡᴀɪᴛ ᴀ ᴍᴏᴍᴇɴᴛ. . .")
     await asyncio.sleep(0.4)
     await m.edit_text("🎊")
     await asyncio.sleep(0.5)
@@ -43,10 +43,15 @@ async def start(client, message: Message):
     ])
 
     # Send start message with or without picture
-   if Config.START_pic:
+    if Config.START_PIC:
         await message.reply_photo(
-            photo = Config.START_pic,)             caption=(
- text=Txt.START_TXT.format(user.mention),
+            Config.START_PIC,
+            caption=Txt.START_TXT.format(user.mention),
+            reply_markup=buttons
+        )
+    else:
+        await message.reply_text(
+            text=Txt.START_TXT.format(user.mention),
             reply_markup=buttons,
             disable_web_page_preview=True
         )
