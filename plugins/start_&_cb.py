@@ -43,22 +43,11 @@ async def start(client, message: Message):
     ])
 
     # Send start message with or without picture
-   #if Config.START_VID:
-        #await message.reply_video(
-            #Config.START_VID,)
-#async def start_command(client, message):
-    user = message.from_user
-
-    #if Config.START_VID:
-        #await message.reply_video(
-            #video=Config.START_VID,
-            #caption="Test Captions",
-            #reply_markup=buttons
-        #)
-    #else:
-        #await message.reply_text(
-                           await message.reply_video(,
-                    video=Config.START_VID,
+   if Config.START_pic:
+        await message.reply_photo(
+            Config.START_pic,)
+async def start_command(client, message):
+    ,
                     caption=(
  text=Txt.START_TXT.format(user.mention),
             reply_markup=buttons,
