@@ -54,7 +54,7 @@ async def start_command(client, message):
             #video=Config.START_VID,
             #caption="Test Captions",
             #reply_markup=buttons
-        )
+        #)
     #else:
         #await message.reply_text(
                            await self.send_video(
