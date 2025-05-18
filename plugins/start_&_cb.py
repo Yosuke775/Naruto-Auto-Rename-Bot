@@ -45,10 +45,7 @@ async def start(client, message: Message):
     # Send start message with or without picture
    if Config.START_pic:
         await message.reply_photo(
-            Config.START_pic,)
-async def start_command(client, message):
-    ,
-                    caption=(
+            photo = Config.START_pic,)             caption=(
  text=Txt.START_TXT.format(user.mention),
             reply_markup=buttons,
             disable_web_page_preview=True
