@@ -18,7 +18,7 @@ class Config(object):
     BOT_UPTIME  = time.time()
     START_VID = os.environ.get("START_VID", "https://ar-hosting.pages.dev/1747560761459.mp4")
 
-    #START_PIC   = os.environ.get("START_PIC", "https://graph.org/file/29a3acbbab9de5f45a5fe.jpg")
+    START_PIC   = os.environ.get("START_PIC", "https://images.app.goo.gl/CZoLdnemZXJZeVSA6")
     ADMIN       = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '6497757690').split()]
     FORCE_SUB_CHANNELS = os.environ.get('FORCE_SUB_CHANNELS', '-1002607329644 -1002686116676').split(',')
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1002686116676"))
