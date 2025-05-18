@@ -53,7 +53,7 @@ async def start_command(client, message):
     if Config.START_VID:
         await message.reply_video(
             video=Config.START_VID,
-            caption=Txt.START_TXT.format(user.mention),
+            caption=Txt.START_TXT.format(user.mention if user else "User"),
             reply_markup=buttons
         )
     else:
