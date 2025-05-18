@@ -49,15 +49,19 @@ async def start(client, message: Message):
 async def start_command(client, message):
     user = message.from_user
 
-    if Config.START_VID:
-        await message.reply_video(
-            video=Config.START_VID,
-            caption="Test Captions",
-            reply_markup=buttons
+    #if Config.START_VID:
+        #await message.reply_video(
+            #video=Config.START_VID,
+            #caption="Test Captions",
+            #reply_markup=buttons
         )
-    else:
-        await message.reply_text(
-            text=Txt.START_TXT.format(user.mention),
+    #else:
+        #await message.reply_text(
+                           await self.send_video(
+                    chat_id=chat_id,
+                    video=Config.START_VID,
+                    caption=(
+ text=Txt.START_TXT.format(user.mention),
             reply_markup=buttons,
             disable_web_page_preview=True
         )
