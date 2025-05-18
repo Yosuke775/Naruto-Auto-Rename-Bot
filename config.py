@@ -16,7 +16,7 @@ class Config(object):
 
     # other configs
     BOT_UPTIME  = time.time()
-    START_VID = os.environ.get("START_VID","AAMCAgADGQEB_w5IaCh0rdqR2MvHsmfJ2UkHeOhJnZcAApp4AAJWhYhKH4KYQ3BCrJgBAAdtAAM2BA")
+    START_VID = os.environ.get("START_VID", "BAACAgIAAxkDAAOMaCh0GAGr0kUuVAYfgbozeBjKEzwAApp4AAJWhYhK-9cm_4KdMV02BA")
 
     #START_PIC   = os.environ.get("START_PIC", "https://graph.org/file/29a3acbbab9de5f45a5fe.jpg")
     ADMIN       = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '6497757690').split()]
