@@ -143,10 +143,10 @@ async def add_metadata(input_path, output_path, user_id):
 @Client.on_message(filters.private & (filters.document | filters.video | filters.audio))
 async def auto_rename_files(client, message):
     """Main handler for auto-renaming files"""
-download_path = None
-metadata_path = None
-thumb_path = None
-user_id = message.from_user.id
+    download_path = None
+    metadata_path = None
+    thumb_path = None
+    user_id = message.from_user.id
     format_template = await codeflixbots.get_format_template(user_id)
 
     if not format_template:
