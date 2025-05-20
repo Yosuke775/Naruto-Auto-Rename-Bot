@@ -89,10 +89,10 @@ async def process_thumbnail(thumb_path):
     """Process and resize thumbnail image"""
     if not thumb_path or not os.path.exists(thumb_path):
         return None
-    
+
     try:
         with Image.open(thumb_path) as img:
-            img = img.convert("RGB").resize((320, 180))
+            img = img.convert("RGB").resize((320, 320))
             img.save(thumb_path, "JPEG")
         return thumb_path
     except Exception as e:
@@ -105,7 +105,7 @@ async def add_metadata(input_path, output_path, user_id):
     ffmpeg = shutil.which('ffmpeg')
     if not ffmpeg:
         raise RuntimeError("FFmpeg not found in PATH")
-    
+
     metadata = {
         'title': await codeflixbots.get_title(user_id),
         'artist': await codeflixbots.get_artist(user_id),
@@ -114,7 +114,7 @@ async def add_metadata(input_path, output_path, user_id):
         'audio_title': await codeflixbots.get_audio(user_id),
         'subtitle': await codeflixbots.get_subtitle(user_id)
     }
-    
+
     cmd = [
         ffmpeg,
         '-i', input_path,
@@ -129,14 +129,14 @@ async def add_metadata(input_path, output_path, user_id):
         '-loglevel', 'error',
         output_path
     ]
-    
+
     process = await asyncio.create_subprocess_exec(
         *cmd,
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE
     )
     _, stderr = await process.communicate()
-    
+
     if process.returncode != 0:
         raise RuntimeError(f"FFmpeg error: {stderr.decode()}")
 
@@ -145,7 +145,7 @@ async def auto_rename_files(client, message):
     """Main handler for auto-renaming files"""
     user_id = message.from_user.id
     format_template = await codeflixbots.get_format_template(user_id)
-    
+
     if not format_template:
         return await message.reply_text("Please set a rename format using /autorename")
 
@@ -182,7 +182,7 @@ async def auto_rename_files(client, message):
         # Extract metadata from filename
         season, episode = extract_season_episode(file_name)
         quality = extract_quality(file_name)
-        
+
         # Replace placeholders in template
         replacements = {
             '{season}': season or 'XX',
@@ -192,7 +192,7 @@ async def auto_rename_files(client, message):
             'Episode': episode or 'XX',
             'QUALITY': quality
         }
-        
+
         for placeholder, value in replacements.items():
             format_template = format_template.replace(placeholder, value)
 
@@ -201,7 +201,7 @@ async def auto_rename_files(client, message):
         new_filename = f"{format_template}{ext}"
         download_path = f"downloads/{new_filename}"
         metadata_path = f"metadata/{new_filename}"
-        
+
         os.makedirs(os.path.dirname(download_path), exist_ok=True)
         os.makedirs(os.path.dirname(metadata_path), exist_ok=True)
 
@@ -238,7 +238,7 @@ async def auto_rename_files(client, message):
             thumb_path = await client.download_media(thumb)
         elif media_type == "video" and message.video.thumbs:
             thumb_path = await client.download_media(message.video.thumbs[0].file_id)
-        
+
         thumb_path = await process_thumbnail(thumb_path)
 
         # Upload file
